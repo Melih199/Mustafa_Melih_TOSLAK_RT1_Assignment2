@@ -57,7 +57,7 @@ It's a simple implementation of action client, it sends a goal to the action ser
 
 
 <p align="center" width="100%">
-    <img width="50%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
+    <img width="80%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
 </p>
 
 
