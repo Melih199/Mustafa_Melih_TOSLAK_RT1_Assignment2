@@ -56,6 +56,7 @@ Finally the "action_client()" funtion creates an action client and waits for the
 It's a simple implementation of action client, it sends a goal to the action server and waits for the result of the goal, it could be an error, a success, or a cancelation. The user can interact with the client, setting a goal or canceling it.
 
 <img align="right" width="50%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
+
 ```python
  def publisher(msg):
     global pub
