@@ -51,47 +51,12 @@ The node also creates a subscriber "sub_from_Odom" that subscribes to the topic 
 </p>
 
 
-
+<img align="right" width="50%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
 Finally the "action_client()" funtion creates an action client and waits for the action server "/reaching_goal" to start. It enters a while loop that prompts the user to enter the target position or type "c" to cancel the goal. If the user enters "c", the action client cancels the goal and sets the status_goal to false. If the user inputs a target position, the function converts the inputs from strings to floats, creates a goal with the target position and sends it to the action server(Planning.action). It also sets status_goal to true.
 It's a simple implementation of action client, it sends a goal to the action server and waits for the result of the goal, it could be an error, a success, or a cancelation. The user can interact with the client, setting a goal or canceling it.
 
-<img align="right" width="50%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
 
-```python
- def action_client():
-    # create the action client
-    action_client = actionlib.SimpleActionClient('/reaching_goal', assignment_2_2022.msg.PlanningAction)
-    # wait for the server to be started
-    action_client.wait_for_server()
-    
-    status_goal = False
-	
-    while not rospy.is_shutdown():
-        # Get the keyboard inputs
-        print(Fore.GREEN + "Please enter position of the target or type c to cancel it ")
-        #print(Fore.MAGENTA + "X position of target: ")
-        x_pos_input = input(Fore.MAGENTA + "X position of target: ")
-        #print(Fore.MAGENTA + "Y position of target: ")
-        y_pos_input = input(Fore.MAGENTA + "Y position of target: ")
-        
- 	# If user entered 'c' cancel the goal
-        if x_pos_input == "c" or y_pos_input == "c":
-            # Cancel the goal
-            action_client.cancel_goal()
-            status_goal = False
-        else:
-            # Convert numbers from string to float
-            x_pos_send = float(x_pos_input)
-            y_pos_send = float(y_pos_input)
-            # Create the goal to send to the server
-            goal = assignment_2_2022.msg.PlanningGoal()
-            goal.target_pose.pose.position.x = x_pos_send
-            goal.target_pose.pose.position.y = y_pos_send
-					
-            # Send the goal to the action server
-            action_client.send_goal(goal)
-            status_goal = True
-```
+
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
