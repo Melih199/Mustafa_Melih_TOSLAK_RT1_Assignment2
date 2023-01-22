@@ -65,7 +65,31 @@ It's a simple implementation of action client, it sends a goal to the action ser
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
+## Second Node: Service (goal_service.py)
 
+The second node creates a ROS service that listens for requests on the "goal_service" topic, and responds with the number of goals reached and cancelled. It also subscribes to the "/reaching_goal/result" topic to receive messages about the status of goals and updates the counters for goals reached and cancelled accordingly. When the service is called, it returns a goal_rcResponse message containing the current values of goal_reached and goal_cancelled.
+
+<p align="center" width="100%">
+    <img width="800" height="200" src="https://user-images.githubusercontent.com/58879182/213945125-df4fc75e-a79e-40b6-813d-e3963bbc4f50.png">
+</p>
+
+The node also creates a subscriber "sub_from_Odom" that subscribes to the topic "/odom", which publishes the Odometry message. The callback function "publisher" is called every time a message is received on the topic "/odom". This function extracts the position and velocity data from the Odometry message and creates an instance of the custom message. The function then assigns the position and velocity data to the corresponding fields of the custom message and publishes the message on the topic "/posxy_velxy".
+
+<p align="center" width="100%">
+    <img width="800" height="200" src="https://user-images.githubusercontent.com/58879182/213940945-5b4c75b8-79c5-45ce-9602-caa3081905f1.png">
+</p>
+
+
+
+Finally the "action_client()" funtion creates an action client and waits for the action server "/reaching_goal" to start. It enters a while loop that prompts the user to enter the target position or type "c" to cancel the goal. If the user enters "c", the action client cancels the goal and sets the status_goal to false. If the user inputs a target position, the function converts the inputs from strings to floats, creates a goal with the target position and sends it to the action server(Planning.action). It also sets status_goal to true.
+It's a simple implementation of action client, it sends a goal to the action server and waits for the result of the goal, it could be an error, a success, or a cancelation. The user can interact with the client, setting a goal or canceling it.
+
+<p align="center" width="100%">
+    <img width="60%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
+</p>
+
+
+----------------------------------------------------------------------------------
 ## Installation
 
 The simulator requires a **Python 2.7** installation, the [pygame](http://pygame.org/) library, [PyPyBox2D](https://pypi.python.org/pypi/pypybox2d/2.1-r331), and [PyYAML](https://pypi.python.org/pypi/PyYAML/).
