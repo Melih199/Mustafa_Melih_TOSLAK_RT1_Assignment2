@@ -7,7 +7,7 @@ RESEARCH TRACK 1  ASSIGNMENT 1
 The aim of this assignment is to create a new ROS package which we will develope 3 nodes: 
 
 1. A node that implements an action client, allowing the user to **set a target (x, y) or to cancel it**. The node
-also **publishes the robot position and velocity** as a custom message (x,y, vel_x, vel_z), by relying on the values
+also **publishes the robot position and velocity** as a custom message (x,y, vel_x, vel_y), by relying on the values
 published on the topic /odom.
 2. A service node that, when called, prints the number of goals reached and cancelled.
 3. A node that subscribes to the robot’s position and velocity (using the custom message) and prints the
