@@ -65,7 +65,7 @@ It's a simple implementation of action client, it sends a goal to the action ser
     # assign the parameters of the custom message
     posxy_velxy.msg_pos_x = pos.x
     posxy_velxy.msg_pos_y = pos.y
-    posxy_velxy.msg_vel_x = velocity.x
+    posxy_velxy.msg_vel_x = velocit
     posxy_velxy.msg_vel_y = velocity.y
     # publish the custom message
     pub.publish(posxy_velxy)
