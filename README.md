@@ -58,21 +58,39 @@ It's a simple implementation of action client, it sends a goal to the action ser
 <img align="right" width="50%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
 
 ```python
- def publisher(msg):
-    global pub
-    # get the position information111
-    pos = msg.pose.pose.position
-    # get the velocity information
-    velocity = msg.twist.twist.linear
-    # custom message
-    posxy_velxy = Posxy_velxy()
-    # assign the parameters of the custom message
-    posxy_velxy.msg_pos_x = pos.x
-    posxy_velxy.msg_pos_y = pos.y
-    posxy_velxy.msg_vel_x = velocity.x
-    posxy_velxy.msg_vel_y = velocity.y
-    # publish the custom message
-    pub.publish(posxy_velxy)
+ def action_client():
+    # create the action client
+    action_client = actionlib.SimpleActionClient('/reaching_goal', assignment_2_2022.msg.PlanningAction)
+    # wait for the server to be started
+    action_client.wait_for_server()
+    
+    status_goal = False
+	
+    while not rospy.is_shutdown():
+        # Get the keyboard inputs
+        print(Fore.GREEN + "Please enter position of the target or type c to cancel it ")
+        #print(Fore.MAGENTA + "X position of target: ")
+        x_pos_input = input(Fore.MAGENTA + "X position of target: ")
+        #print(Fore.MAGENTA + "Y position of target: ")
+        y_pos_input = input(Fore.MAGENTA + "Y position of target: ")
+        
+ 	# If user entered 'c' cancel the goal
+        if x_pos_input == "c" or y_pos_input == "c":
+            # Cancel the goal
+            action_client.cancel_goal()
+            status_goal = False
+        else:
+            # Convert numbers from string to float
+            x_pos_send = float(x_pos_input)
+            y_pos_send = float(y_pos_input)
+            # Create the goal to send to the server
+            goal = assignment_2_2022.msg.PlanningGoal()
+            goal.target_pose.pose.position.x = x_pos_send
+            goal.target_pose.pose.position.y = y_pos_send
+					
+            # Send the goal to the action server
+            action_client.send_goal(goal)
+            status_goal = True
 ```
 
 
