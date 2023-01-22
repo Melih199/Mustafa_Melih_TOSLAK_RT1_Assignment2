@@ -4,12 +4,17 @@ RESEARCH TRACK 1  ASSIGNMENT 1
 
 ## Goal Of The Assignment
 
-The aim of this assignment is create a python node that: 
+The aim of this assignment is to create a new ROS package which we will develope 3 nodes: 
 
-1. Give ability to robot **distinguish between silver** and **golden tokens**.
-2. Find the **closest silver token** and **grab** it.
-3. After grabing silver token, **find closest golden token** and **release** the silver token near to golden one.
-4. Repeat these prosesses **whitout using same silver and golden tokens** until there are no silver tokens left.
+1. A node that implements an action client, allowing the user to **set a target (x, y) or to cancel it**. The node
+also **publishes the robot position and velocity** as a custom message (x,y, vel_x, vel_z), by relying on the values
+published on the topic /odom.
+2. A service node that, when called, prints the number of goals reached and cancelled.
+3. A node that subscribes to the robot’s position and velocity (using the custom message) and prints the
+**distance of the robot from the target and the robot’s average speed**. Use a parameter to set how fast the
+node publishes the information.
+4. Also create a **launch file** to start the whole simulation. Set the value for the **frequency** with which node (c) publishes
+the information.
 
 
 ![github](https://user-images.githubusercontent.com/58879182/202067129-90583e59-b3b1-45e2-af43-7353eba48369.png)
