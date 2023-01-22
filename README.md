@@ -51,9 +51,10 @@ The node also creates a subscriber "sub_from_Odom" that subscribes to the topic 
 Finally the "action_client()" funtion creates an action client and waits for the action server "/reaching_goal" to start. It enters a while loop that prompts the user to enter the target position or type "c" to cancel the goal. If the user enters "c", the action client cancels the goal and sets the status_goal to false. If the user inputs a target position, the function converts the inputs from strings to floats, creates a goal with the target position and sends it to the action server(Planning.action). It also sets status_goal to true.
 It's a simple implementation of action client, it sends a goal to the action server and waits for the result of the goal, it could be an error, a success, or a cancelation. The user can interact with the client, setting a goal or canceling it.
 
-<center>
-  ![action_user](https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png)
-</center>
+
+<p align="center" width="100%">
+    <img width="33%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
+</p>
 
 
 
