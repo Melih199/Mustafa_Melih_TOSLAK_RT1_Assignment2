@@ -73,10 +73,14 @@ The second node creates a ROS service that listens for requests on the "goal_ser
     <img width="800" height="200" src="https://user-images.githubusercontent.com/58879182/213945125-df4fc75e-a79e-40b6-813d-e3963bbc4f50.png">
 </p>
 
-The node also creates a subscriber "sub_from_Odom" that subscribes to the topic "/odom", which publishes the Odometry message. The callback function "publisher" is called every time a message is received on the topic "/odom". This function extracts the position and velocity data from the Odometry message and creates an instance of the custom message. The function then assigns the position and velocity data to the corresponding fields of the custom message and publishes the message on the topic "/posxy_velxy".
+It initializes a ROS node called "goal_service" and creates an instance of the Service class. This creates the service, which listens for requests on the "goal_service" topic, and a subscriber to the "/reaching_goal/result" topic. When a request is received on the "goal_service" topic, the data method is called, which returns a goal_rcResponse message containing the current values of goal_reached and goal_cancelled.
+
+When a message is received on the "/reaching_goal/result" topic, the result_callback method is called. This method examines the status (when robot moving: status = 1, when robot target cancelled: status = 2 and when robot reached the target: status = 3) of the goal, which is contained within the message, and increments the appropriate counter, either goal_cancelled or goal_reached.
 
 <p align="center" width="100%">
-    <img width="800" height="200" src="https://user-images.githubusercontent.com/58879182/213940945-5b4c75b8-79c5-45ce-9602-caa3081905f1.png">
+    <img width="32%" src="https://user-images.githubusercontent.com/58879182/213946558-6baa0529-c805-478d-bbfa-5d8cf2a23401.png">
+    <img width="32%" src="https://user-images.githubusercontent.com/58879182/213946559-fb0281e6-65eb-4569-b5b9-347fece81313.png">
+    <img width="32%" src="https://user-images.githubusercontent.com/58879182/213946570-c6f54c7b-8104-4759-9046-0e861b1b48c9.png">
 </p>
 
 
