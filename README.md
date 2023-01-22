@@ -17,7 +17,9 @@ node publishes the information.
 the information.
 
 
-![github](https://user-images.githubusercontent.com/58879182/202067129-90583e59-b3b1-45e2-af43-7353eba48369.png)
+|   Image 1   |   Image 2   |
+|:-----------:|:-----------:|
+| ![gazebo](https://user-images.githubusercontent.com/58879182/213930978-03b44cb7-5773-4493-9a46-f09ea9ff9882.png) | ![rviz](https://user-images.githubusercontent.com/58879182/213930988-66208f7d-68db-4a37-a514-bbfa4f39b995.png)|
 
 ----------------------------------
 
