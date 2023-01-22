@@ -17,6 +17,11 @@ node publishes the information.
 4. Also create a **launch file** to start the whole simulation. Set the value for the **frequency** with which node (c) publishes
 the information.
 
+<p align="center" width="100%">
+    <img width="32%" src="[https://i.stack.imgur.com/RJj4x.png](https://user-images.githubusercontent.com/58879182/213936088-b599162b-4c8a-4728-b4f6-830d56a3db6e.png)">
+    <img width="32%" src="https://user-images.githubusercontent.com/58879182/213935894-04b775d8-8a03-4a45-86b4-349905741c48.png">
+    
+</p>
 
 |   Gazebo   |   Rviz   |
 |:----------:|:-----------:|
