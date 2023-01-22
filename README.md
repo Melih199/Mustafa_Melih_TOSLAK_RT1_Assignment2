@@ -18,8 +18,12 @@ the information.
 
 
 |   Gazebo   |   Rviz   |
-|:-------:|:-----------:|
+|:----------:|:-----------:|
 | ![gazebo](https://user-images.githubusercontent.com/58879182/213930978-03b44cb7-5773-4493-9a46-f09ea9ff9882.png) | ![rviz](https://user-images.githubusercontent.com/58879182/213930988-66208f7d-68db-4a37-a514-bbfa4f39b995.png)|
+
+<img src="![gazebo](https://user-images.githubusercontent.com/58879182/213930978-03b44cb7-5773-4493-9a46-f09ea9ff9882.png)" style="width:200px;height:200px">
+<img src="![rviz](https://user-images.githubusercontent.com/58879182/213930988-66208f7d-68db-4a37-a514-bbfa4f39b995.png)" style="width:200px;height:200px">
+
 
 ----------------------------------
 
