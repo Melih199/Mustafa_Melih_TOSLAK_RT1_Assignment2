@@ -19,7 +19,7 @@ the information.
 
 |   Gazebo   |   Rviz   |
 |:----------:|:-----------:|
-| ![gazebo](https://user-images.githubusercontent.com/58879182/213935798-85de3d81-e60f-4005-8318-65351ddbc124.png) | ![rviz](https://user-images.githubusercontent.com/58879182/213935799-630f6146-6564-4640-ac96-085c5df09096.png)
+| ![gazebo resized](https://user-images.githubusercontent.com/58879182/213935899-d8cb9dce-0e91-4acd-9d18-380c98bb2d60.png) | ![rviz resized](https://user-images.githubusercontent.com/58879182/213935894-04b775d8-8a03-4a45-86b4-349905741c48.png)
 |
 
 
