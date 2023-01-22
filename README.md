@@ -25,12 +25,12 @@ the information.
 ---------------------------------
 ## First Node: Action (action_user.py)
 
-The first node of our package creates a publisher "pub" that publishes a custom message "Posxy_velxy" on the topic "/posxy_velxy". The custom message contains four fields "msg_pos_x", "msg_pos_y", "msg_vel_x", "msg_vel_y" that represent the position and velocity of the robot.
+The first node of our package creates a publisher "pub" that publishes a custom message "**Posxy_velxy**" on the topic "/posxy_velxy". The custom message contains four fields "**msg_pos_x**", "**msg_pos_y**", "**msg_vel_x**", "**msg_vel_y**" that represent the position and velocity of the robot.
 
 ```python
  def publisher(msg):
     global pub
-    # get the position information
+    # get the position information111
     pos = msg.pose.pose.position
     # get the velocity information
     velocity = msg.twist.twist.linear
@@ -44,6 +44,10 @@ The first node of our package creates a publisher "pub" that publishes a custom 
     # publish the custom message
     pub.publish(posxy_velxy)
 ```
+The node also creates a subscriber "sub_from_Odom" that subscribes to the topic "/odom", which publishes the Odometry message. The callback function "publisher" is called every time a message is received on the topic "/odom". This function extracts the position and velocity data from the Odometry message and creates an instance of the custom message. The function then assigns the position and velocity data to the corresponding fields of the custom message and publishes the message on the topic "/posxy_velxy".
+
+![Posxy_velxy](https://user-images.githubusercontent.com/58879182/213940945-5b4c75b8-79c5-45ce-9602-caa3081905f1.png)
+
 
 ----------------------------------
 
