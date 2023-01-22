@@ -18,8 +18,8 @@ node publishes the information.
 the information.
 
 <p align="center" width="100%">
-    <img width="700" height="350" src="https://user-images.githubusercontent.com/58879182/213936088-b599162b-4c8a-4728-b4f6-830d56a3db6e.png">
-    <img width="700" height="350" src="https://user-images.githubusercontent.com/58879182/213935894-04b775d8-8a03-4a45-86b4-349905741c48.png">
+    <img width="600" height="350" src="https://user-images.githubusercontent.com/58879182/213936088-b599162b-4c8a-4728-b4f6-830d56a3db6e.png">
+    <img width="600" height="350" src="https://user-images.githubusercontent.com/58879182/213935894-04b775d8-8a03-4a45-86b4-349905741c48.png">
     
 </p>
 
