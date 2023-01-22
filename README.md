@@ -1,9 +1,10 @@
 # Mustafa_Melih_TOSLAK_RT1_Assignment2
-RESEARCH TRACK 1  ASSIGNMENT 1
+RESEARCH TRACK 1  ASSIGNMENT 2
 ================================
 
 ## Goal Of The Assignment
 
+This assignment involves creating a package for a robot simulation in Gazebo and Rviz. 
 The aim of this assignment is to create a new ROS package which we will develope 3 nodes: 
 
 1. A node that implements an action client, allowing the user to **set a target (x, y) or to cancel it**. The node
