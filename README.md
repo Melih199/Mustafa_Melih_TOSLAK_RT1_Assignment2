@@ -221,10 +221,22 @@ To access the Service Caller function in rqt, follow these steps:
 When running `roslaunch assignment_2_2022 assignment2.launch` file, you may be presented with some errors related to the graphical board of your pc. Try the following steps:
 
 Open the urdf directory and change 43 and 71 lines of the robot2_lazer.gazebo file with the followings:
-* line 43: ```xml <sensor type="ray" name="head_hokuyo_sensor"> ``` 
-change with  ```xml <sensor type="gpu_ray" name="head_hokuyo_sensor"> ```
-* line 71: ```xml <plugin name="hokuyo_node" filename="libgazebo_ros_laser.so"> ``` 
-change with  ```xml <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so"> ```
+* line 43: 
+	```xml 
+	<sensor type="ray" name="head_hokuyo_sensor"> 
+	``` 
+change with  
+	```xml 
+	<sensor type="gpu_ray" name="head_hokuyo_sensor"> 
+	```
+* line 71: 
+	```xml 
+	<plugin name="hokuyo_node" filename="libgazebo_ros_laser.so"> 
+	``` 
+change with  
+	```xml 
+	<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so"> 
+	```
 
 -----------------------------------
 
