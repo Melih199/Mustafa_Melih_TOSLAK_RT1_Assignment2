@@ -48,7 +48,7 @@ The first node of our package creates a publisher "pub" that publishes a custom 
 The node also creates a subscriber "sub_from_Odom" that subscribes to the topic "/odom", which publishes the Odometry message. The callback function "publisher" is called every time a message is received on the topic "/odom". This function extracts the position and velocity data from the Odometry message and creates an instance of the custom message. The function then assigns the position and velocity data to the corresponding fields of the custom message and publishes the message on the topic "/posxy_velxy".
 
 <p align="center" width="100%">
-    <img width="800" height="200" src="https://user-images.githubusercontent.com/58879182/213940945-5b4c75b8-79c5-45ce-9602-caa3081905f1.png">
+    <img width="800" height="250" src="https://user-images.githubusercontent.com/58879182/213940945-5b4c75b8-79c5-45ce-9602-caa3081905f1.png">
 </p>
 
 
@@ -70,7 +70,7 @@ It's a simple implementation of action client, it sends a goal to the action ser
 The second node creates a ROS service that listens for requests on the "goal_service" topic, and responds with the number of goals reached and cancelled. It also subscribes to the "/reaching_goal/result" topic to receive messages about the status of goals and updates the counters for goals reached and cancelled accordingly. When the service is called, it returns a goal_rcResponse message containing the current values of goal_reached and goal_cancelled.
 
 <p align="center" width="100%">
-    <img width="800" height="200" src="https://user-images.githubusercontent.com/58879182/213945125-df4fc75e-a79e-40b6-813d-e3963bbc4f50.png">
+    <img width="800" height="250" src="https://user-images.githubusercontent.com/58879182/213945125-df4fc75e-a79e-40b6-813d-e3963bbc4f50.png">
 </p>
 
 It initializes a ROS node called "goal_service" and creates an instance of the Service class. This creates the service, which listens for requests on the "goal_service" topic, and a subscriber to the "/reaching_goal/result" topic. When a request is received on the "goal_service" topic, the data method is called, which returns a goal_rcResponse message containing the current values of goal_reached and goal_cancelled.
