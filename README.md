@@ -135,7 +135,7 @@ Each of these nodes is defined by specifying the package name "assignment_2_2022
     <param name="des_pos_x" value= "0.0" />
     <param name="des_pos_y" value= "1.0" />
     
-    <!--Parameter to set the frequency the info is printed with-->
+    <!--Frequency parameter to set the frequency of the print_dis_avgvel node -->
     <param name="frequency" type="double" value="1.0" />
     
     <node pkg="assignment_2_2022" type="wall_follow_service.py" name="wall_follower" />
