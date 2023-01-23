@@ -239,150 +239,19 @@ Open the urdf directory and change 43 and 71 lines of the robot2_lazer.gazebo fi
 	```
 
 -----------------------------------
-
-## Not Autonomous Solution
-
-In this solution the path of the robot already given with two array: 
-
-* silver_tokens_offset_number = [3,2,1,0,5,4]
-* golden_tokens_offset_number = [11,10,9,8,7,6]
-
-First of all robot will search and find the silver token which offset number is equal to the first element of the **silver_tokens_offset_number** array, then it will grab it. When graping is done, robot will search for golden token token which offset number is equal to the first element of the **golden_tokens_offset_number** array and it will release the silver token near to golden token and the process will continue with the other elements of the both arrays, respectively until all the elements of arrays are processed.
-
-Note: The issue of this solution is you have to find the offset numbers of tokens and write in the arrays **manually**. 
-
-![Not_Autonomous_Path](https://user-images.githubusercontent.com/58879182/202065266-b522196a-5574-4ed6-9bd9-49be95bafaf7.png)
-
-
-
------------------------------------
-
-## Semi Autonomous Solution
-
-The Semi autonomous solution can be thought of as upgrading Non autonomous solution to become more autonomous. The issue of manually entering offset numbers to the arrays found the solution here. Now robot capable of:
-
-* Finding closest silver token and grabing it.
-* Finding closest golden token and releasing silver token near to golden token.
-* Not using already taken silver and golden tokens.
-* Ending task when all **12** tokens are used.
-
-**Note:** Although the robot's autonomous level increases with this solution, the user must specify the total token number **manually** in the code.
-
-```python
- if len(Taken_tokens)==12:                       
-
-    		print("Well done assignment completed successfully")
-
-    		exit()
-```
-------------------------------------------
-
-## Full Autonomous Solution
-
-In this solution "manually entering" issues from Not autonomous and semi autonomous solutions are solved. After using all tokens our robot turning 360 degree to check if there is any silver token left if not ending program. Now our robot capable of:
-
-* Finding closest silver token and grabing it.
-* Finding closest golden token and releasing silver token near to golden token.
-* Not using already taken silver and golden tokens.
-* Ending task when there is no silver token left.
-
-```python
-
-  if offset in Taken_tokens:                    
-
-		turn(+40, 0.1)                       
-  		print("Looking for not already taken Silver Token")
-		complete = complete + 1  
 		
-  		if complete == 24:    
-				print("I turned 360 degree and couldn`t see any not taken  silver Token")
-				print("MISSION COMPLETE")
-				exit()        # And the System because there is no any silver token left
- ```
-**Note:** When integer variable coplete is equal to 24 this mean our Robot turned 360 degree. Turn(40,0.1) function is turning our robot 15 degree (15*24=360).
-
-### Flowchart Of The Full Autonomous Solution
-
-![Full_autonomous_Flowchart_basic](https://user-images.githubusercontent.com/58879182/202076049-4c5f786d-598a-4f5f-8d76-94f5d5713e7a.png)
-
----------------------------------------
-
-### Functionalities And Informations About Robot API
-
-The API for controlling a simulated robot is designed to be as similar as possible to the [SR API][sr-api].
-
-### Motors ###
-
-The simulated robot has two motors configured for skid steering, connected to a two-output [Motor Board](https://studentrobotics.org/docs/kit/motor_board). The left motor is connected to output `0` and the right motor to output `1`.
-
-The Motor Board API is identical to [that of the SR API](https://studentrobotics.org/docs/programming/sr/motors/), except that motor boards cannot be addressed by serial number. So, to turn on the spot at one quarter of full power, one might write the following:
-
-```python
-R.motors[0].m0.power = 25
-R.motors[0].m1.power = -25
-
-```
-### The Grabber ###
-
-The robot is equipped with a grabber, capable of picking up a token which is in front of the robot and within 0.4 metres of the robot's centre. To pick up a token, call the `R.grab` method:
-
-```python
-success = R.grab()
-```
-The `R.grab` function returns `True` if a token was successfully picked up, or `False` otherwise. If the robot is already holding a token, it will throw an `AlreadyHoldingSomethingException`.
-
-To drop the token, call the `R.release` method.
-
-Cable-tie flails are not implemented.
-
-### Vision ###
-
-To help the robot find tokens and navigate, each token has markers stuck to it, as does each wall. The `R.see` method returns a list of all the markers the robot can see, as `Marker` objects. The robot can only see markers which it is facing towards.
-
-Each `Marker` object has the following attributes:
-
-* `info`: a `MarkerInfo` object describing the marker itself. Has the following attributes:
-
-  * `code`: the numeric code of the marker.
-
-  * `marker_type`: the type of object the marker is attached to (either `MARKER_TOKEN_GOLD`, `MARKER_TOKEN_SILVER` or `MARKER_ARENA`).
-
-  * `offset`: offset of the numeric code of the marker from the lowest numbered marker of its type. For example, token number 3 has the code 43, but offset 3.
-
-  * `size`: the size that the marker would be in the real game, for compatibility with the SR API.
-
-* `centre`: the location of the marker in polar coordinates, as a `PolarCoord` object. Has the following attributes:
-
-  * `length`: the distance from the centre of the robot to the object (in metres).
-
-  * `rot_y`: rotation about the Y axis in degrees.
-
-* `dist`: an alias for `centre.length`
-
-* `res`: the value of the `res` parameter of `R.see`, for compatibility with the SR API.
-
-* `rot_y`: an alias for `centre.rot_y`
-
-* `timestamp`: the time at which the marker was seen (when `R.see` was called).
-
-For example, the following code lists all of the markers the robot can see:
-
-```python
-markers = R.see()
-print "I can see", len(markers), "markers:"
-for m in markers:
-    if m.info.marker_type in (MARKER_TOKEN_GOLD, MARKER_TOKEN_SILVER):
-        print " - Token {0} is {1} metres away".format( m.info.offset, m.dist )
-    elif m.info.marker_type == MARKER_ARENA:
-        print " - Arena marker {0} is {1} metres away".format( m.info.offset, m.dist )
-```
-[sr-api]: https://studentrobotics.org/docs/programming/sr/
-
 ## Conclusion
 
-As a result our robot fully capable of finding silver and golden tokens and successfully completing the assigned task no matter how many tokens. The robot can be improved by the following methods:
+In this assignment, a package was developed with three nodes: (a) an action client node that allows the user to set a target (x, y) or cancel it, and also publishes the robot's position and velocity as a custom message; (b) a service node that prints the number of goals reached and cancelled; and (c) a node that subscribes to the robot's position and velocity and prints the distance of the robot from the target and the robot's average speed. A launch file was also created to start the whole simulation and set the frequency at which node (c) publishes information. Overall, the package demonstrates the use of action clients, services, and custom messages in ROS and how they can be used to control a robot and monitor its performance. Some possible improvements for this assignment could include:
 
-* Increasing the robot's field of view
-* Avoiding other tokens
+1- Using markers in RViz to display the target position and the robot's current position in a more intuitive way, such as by using different colors or shapes to indicate different states (e.g. goal reached, goal canceled).
 
-**Note:** Now our robot fully autonomous but if the number of the silver and golden tokens are not equal and the number of the silver tokens is more than golden tokens number our program can be crash.
+2- Incorporating the robot's orientation in the visualization, such as by using an arrow or a 3D model of the robot to indicate the direction it is facing.
+
+3- Using Gazebo's built-in visualization tools to display the target position in the simulated environment, such as by placing a marker or a flag at the target location.
+
+4- Incorporating a path-planning algorithm to display the robot's planned path to the target, such as by using RViz's "Path" display type.
+
+5- Implementing input validation to ensure that the user can only enter integers, and not other types of input such as floating point numbers or characters. Providing feedback to the user if an invalid input is entered, such as by displaying an error message or highlighting the input field in red.
+
+6- Adding a feature to check if the input value is within a certain range or not, and if not, prompt the user to enter a value within the range.
