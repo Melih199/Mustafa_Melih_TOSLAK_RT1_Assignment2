@@ -123,7 +123,7 @@ After that, it starts nodes using the <node> tag, these nodes are:
   +  "goal_service.py"
   +  "print_dis_avgvel.py"
 
-Each of these nodes is defined by specifying the package name "assignment_2_2022" where they reside, the type of the file, and the name of the node. The last two nodes are run with the additional parameter output="screen" and launch-prefix="xterm -hold -e" respectively, which will cause the output of these nodes to be printed to the screen in a new terminal window.
+Each of these nodes is defined by specifying the package name "assignment_2_2022" where they reside, the type of the file, and the name of the node. The last two nodes are run with the additional parameter output="screen" and launch-prefix="xterm -hold -e" respectively, which causes the output of these nodes to be printed to the screen in a new terminal window.
 	
 
 	
@@ -150,29 +150,45 @@ This launch file allows to start all the necessary nodes for the application and
 	
 ------------------------------------
 ## Installation
+
+First of all before running the program it is required to install the xterm libray. Open a terminal window and run the following command to install the xterm package, this library helps us to print outputs of the nodes in a new terminal window :
+
 ```command
-	python run.py solutions/Not_autonomous_solution.py 
+	sudo apt-get install xterm -y
+```
+Next, navigate to your ROS workspace 'src' folder and clone this repository using the following command:
+	
+```command
+	git clone <link of the repository>
+```
+Once the repository has been cloned, navigate to the work space drectory and run the following command to build the package:
+
+```command
+	catkin_make
 ```
 
 
-Pygame, unfortunately, can be tricky (though [not impossible](http://askubuntu.com/q/312767)) to install in virtual environments. If you are using `pip`, you might try `pip install hg+https://bitbucket.org/pygame/pygame`, or you could use your operating system's package manager. Windows users could use [Portable Python](http://portablepython.com/). PyPyBox2D and PyYAML are more forgiving, and should install just fine using `pip` or `easy_install`.
-
+After the package has been built successfully, finally, we can launch the simulation
+	
 ---------------------------------
 
-## How To Run
+## How To Run The Simulation
+The launch file for the assignment can be found in the "launch" folder within the "assignment_2_2022" directory. To start the simulation, use the following command: 
 
-The solutions of the assignment can be found in the **solutions (python_simulator/robot-sim/solutions)** file. In this directory, there are three different solutions of the assignment:
+```command
+	roslaunch assignment_2_2022 assignment2.launch
+```
 
-+ Not_autonomous_solution.py
-+ Semi_autonomous_solution.py
-+ Full_autonomous_solution.py
-
-To run these solutions in the simulator **cd** to **robot-sim** directory, use `run.py`, passing it the file names.
-
- - Not autonomous  &rarr; ``` $ python run.py solutions/Not_autonomous_solution.py ```
- - Semi autonomous &rarr; ``` $ python run.py solutions/Semi_autonomous_solution.py ```
- - Full autonomous  &rarr; ``` $ python run.py solutions/Full_autonomous_solution.py ```
-
+<p align="center" width="100%">
+    <img width="24%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
+    <img width="24%" src="https://user-images.githubusercontent.com/58879182/213949410-960707c9-6672-490f-96c1-2d3c2618f1cd.png">
+    <img width="24%" src="https://user-images.githubusercontent.com/58879182/213936088-b599162b-4c8a-4728-b4f6-830d56a3db6e.png">
+    <img width="24%" src="https://user-images.githubusercontent.com/58879182/213935894-04b775d8-8a03-4a45-86b4-349905741c48.png">	
+</p>
+	
+Upon successful launch, four screens should appear: one for inputting target coordinates (action_user.py), one for displaying the distance and average velocity of the robot (print_dis_avgvel.py), and two for the Gazebo and Rviz visualization environments.
+	
+	
 ---------------------------------
 
 ## Troubleshooting
