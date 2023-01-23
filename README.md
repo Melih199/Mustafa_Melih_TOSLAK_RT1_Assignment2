@@ -186,7 +186,24 @@ Upon successful launch, four screens should appear: one for inputting target coo
     <img width="24%" height="200" src="https://user-images.githubusercontent.com/58879182/213936088-b599162b-4c8a-4728-b4f6-830d56a3db6e.png">
     <img width="24%" height="200" src="https://user-images.githubusercontent.com/58879182/213935894-04b775d8-8a03-4a45-86b4-349905741c48.png">	
 </p>
-	
+
+To run the service node (goal_service.py) that, when called, prints the number of goals reached and cancelled use the following command:
+
+```command
+	rosservice call /gaol_service
+```
+or just us the rqt tool to call the service. rqt is a tool in ROS (Robot Operating System) that provides a simple and intuitive GUI (graphical user interface) for debugging and analyzing various aspects of the system. It allows users to view various data streams, such as topics, services, and parameters, as well as perform tasks such as plotting, logging, and debugging. rqt also provides a plugin system which allows developers to create custom plugins for specific tasks. It helps to debug, visualize and inspect the ROS system, also to monitor and control the ROS nodes and topics.
+
+```command
+	rqt
+```
+<p align="center" width="100%">
+    <img width="60%" src="https://user-images.githubusercontent.com/58879182/214059310-a25e8d3d-29fd-4a1f-927f-9e372578cba3.png">
+</p>
+
+<p align="center" width="100%">
+    <img width="60%" src="https://user-images.githubusercontent.com/58879182/214059310-a25e8d3d-29fd-4a1f-927f-9e372578cba3.png">
+</p>
 	
 ---------------------------------
 
