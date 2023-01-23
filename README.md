@@ -147,6 +147,7 @@ Each of these nodes is defined by specifying the package name "assignment_2_2022
 </launch>
 ```
 This launch file allows to start all the necessary nodes for the application and set the required parameters with a single command, instead of running each node and setting each parameter separately. It also allows to run the nodes in a specific order and with specific settings.
+	
 ------------------------------------
 ## Installation
 
