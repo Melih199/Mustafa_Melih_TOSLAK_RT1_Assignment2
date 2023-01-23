@@ -225,7 +225,7 @@ Open the urdf directory and change 43 and 71 lines of the robot2_lazer.gazebo fi
 	```xml 
 	<sensor type="ray" name="head_hokuyo_sensor"> 
 	``` 
-change with  
+* change with  
 	```xml 
 	<sensor type="gpu_ray" name="head_hokuyo_sensor"> 
 	```
@@ -233,7 +233,7 @@ change with
 	```xml 
 	<plugin name="hokuyo_node" filename="libgazebo_ros_laser.so"> 
 	``` 
-change with  
+* change with  
 	```xml 
 	<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so"> 
 	```
