@@ -75,7 +75,7 @@ The second node creates a ROS service that listens for requests on the "goal_ser
 
 It initializes a ROS node called "goal_service" and creates an instance of the Service class. This creates the service, which listens for requests on the "goal_service" topic, and a subscriber to the "/reaching_goal/result" topic. When a request is received on the "goal_service" topic, the data method is called, which returns a goal_rcResponse message containing the current values of goal_reached and goal_cancelled.
 
-When a message is received on the "/reaching_goal/result" topic, the result_callback method is called. This method examines the status (when robot moving: status = 1, when robot target cancelled: status = 2 and when robot reached the target: status = 3) of the goal, which is contained within the message, and increments the appropriate counter, either goal_cancelled or goal_reached.
+When a message is received on the "/reaching_goal/result" topic, the result_callback method is called. This method examines the status (when robot moving: status = 1, when robot target cancelled: status = 2 and when robot reached the target: status = 3) of the goal, which is contained within the message, and increments the appropriate counter, either goal_cancelled or goal_reached. To check the status "rostopic echo /reaching_goal/status" can be run.
 
 <p align="center" width="100%">
     <img width="32%" src="https://user-images.githubusercontent.com/58879182/213946558-6baa0529-c805-478d-bbfa-5d8cf2a23401.png">
@@ -83,17 +83,31 @@ When a message is received on the "/reaching_goal/result" topic, the result_call
     <img width="32%" src="https://user-images.githubusercontent.com/58879182/213946570-c6f54c7b-8104-4759-9046-0e861b1b48c9.png">
 </p>
 
+----------------------------------------------------------------------------------
 
+## Third Node: Print Distance and Average Velociity (print_dis_avgvel.py)
 
-Finally the "action_client()" funtion creates an action client and waits for the action server "/reaching_goal" to start. It enters a while loop that prompts the user to enter the target position or type "c" to cancel the goal. If the user enters "c", the action client cancels the goal and sets the status_goal to false. If the user inputs a target position, the function converts the inputs from strings to floats, creates a goal with the target position and sends it to the action server(Planning.action). It also sets status_goal to true.
-It's a simple implementation of action client, it sends a goal to the action server and waits for the result of the goal, it could be an error, a success, or a cancelation. The user can interact with the client, setting a goal or canceling it.
+The third node prints out information about a robot's distace from target and average velocity. The node gets the publish frequency parameter from ROS parameters, which is used to determine how often the information is printed. It also initializes a variable to keep track of the last time the information was printed and creates a subscriber to the '/posxy_velxy' topic, which i  to containining messages of robot's curren x,y positions and x,y velocities.
+
+```python
+ def __init__(self):
+        # Get the publish frequency parameter
+        self.freq = rospy.get_param("frequency")
+
+        # Last time the info was printed
+        self.printed = 0
+
+        # Subscriber to the position and velocity topic
+        self.sub_pos = rospy.Subscriber("/posxy_velxy", Posxy_velxy, self.posvel_callback)
+```
+The node first gets the desired position of the robot, and the actual position of the robot from the message received. It then calculates the distance between the desired and actual positions using the math.dist() function. It also gets the actual velocity of the robot from the message and calculates the average speed using the velocity components from the message. Finally, it prints the distance and average speed information using the rospy.loginfo() function, and updates the last printed time variable.
 
 <p align="center" width="100%">
-    <img width="60%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
+    <img width="60%" src="https://user-images.githubusercontent.com/58879182/213949410-960707c9-6672-490f-96c1-2d3c2618f1cd.png">
 </p>
 
 
-----------------------------------------------------------------------------------
+-------------------------------------
 ## Installation
 
 The simulator requires a **Python 2.7** installation, the [pygame](http://pygame.org/) library, [PyPyBox2D](https://pypi.python.org/pypi/pypybox2d/2.1-r331), and [PyYAML](https://pypi.python.org/pypi/PyYAML/).
