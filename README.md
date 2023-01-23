@@ -59,13 +59,15 @@ It's a simple implementation of action client, it sends a goal to the action ser
     <img width="60%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
 </p>
 
-### Flowchar of the acrtion_user.py
+### Flowchart of the action_user.py
 
 <p align="center" width="100%">
-    <img width="60%" src="https://user-images.githubusercontent.com/58879182/214114278-fa53c165-bfd9-4d00-967d-a7e058490bc5.png">
+    <img width="80%" src="https://user-images.githubusercontent.com/58879182/214114278-fa53c165-bfd9-4d00-967d-a7e058490bc5.png">
 </p>
 
-
+<p align="center" width="100%">
+    <img width="80%" src="https://user-images.githubusercontent.com/58879182/214115181-39106b2d-0826-4da3-92d4-60c0318baef5.svg">
+</p>
 --------------------------------------------------------------------------------------------------------------------------------------------------
 ## Second Node: Service (goal_service.py)
 
