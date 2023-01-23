@@ -108,7 +108,7 @@ The node first gets the desired position of the robot, and the actual position o
 
 
 -------------------------------------
-## Creating Launch file (assignment1.launch)
+## Creating Launch file (assignment2.launch)
 
 The ROS launch file is used to start multiple nodes and set parameters at once. The launch file is written in XML and uses the <launch> tag as the root element.The launch file starts by including another launch file, "sim_w1.launch", which is already located in our package to run Gazebo and Rviz simulators and environment related nodes. Then, it sets two parameters "des_pos_x" and "des_pos_y" with values 0.0 and 1.0 respectively. These parameters used by other nodes to determine the desired position of the robot.
 
