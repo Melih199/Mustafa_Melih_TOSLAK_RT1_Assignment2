@@ -218,12 +218,11 @@ To access the Service Caller function in rqt, follow these steps:
 
 ## Troubleshooting
 
-When running `python run.py <file>`, you may be presented with an error: `ImportError: No module named 'robot'`. This may be due to a conflict between sr.tools and sr.robot. To resolve, symlink simulator/sr/robot to the location of sr.tools.
+When running `roslaunch assignment_2_2022 assignment2.launch` file, you may be presented with some errors related to the graphical board of your pc. Try the following steps:
 
-On Ubuntu, this can be accomplished by:
-* Find the location of srtools: `pip show sr.tools`
-* Get the location. In my case this was `/usr/local/lib/python2.7/dist-packages`
-* Create symlink: `ln -s path/to/simulator/sr/robot /usr/local/lib/python2.7/dist-packages/sr/`
+Open the urdf directory and change 43 and 71 lines of the robot2_lazer.gazebo file with the followings:
+* line 43: <sensor type="ray" name="head_hokuyo_sensor"> -> change with  -> <sensor type="gpu_ray" name="head_hokuyo_sensor">
+* line 71: <plugin name="hokuyo_node" filename="libgazebo_ros_laser.so"> -> change with -> <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so"> 
 
 -----------------------------------
 
