@@ -108,6 +108,40 @@ The node first gets the desired position of the robot, and the actual position o
 
 
 -------------------------------------
+## Creating Launch file (assignment1.launch)
+
+The ROS launch file is used to start multiple nodes and set parameters at once. The launch file is written in XML and uses the <launch> tag as the root element.The launch file starts by including another launch file, "sim_w1.launch", which is already located in our package to run Gazebo and Rviz simulators and environment related nodes. Then, it sets two parameters "des_pos_x" and "des_pos_y" with values 0.0 and 1.0 respectively. These parameters used by other nodes to determine the desired position of the robot.
+
+Then we set a parameter "frequency" with a value of 1.0. This parameter used by the node "print_dis_avgvel.py" to determine how often the distance and average velocity information should be printed.
+
+After that, it starts several nodes using the <node> tag, these nodes are:
+
+  +  "wall_follower.py"
+  +  "go_to_point.py"
+  +  "bug_action_service.py"
+  +  "action_user.py"
+  +  "goal_service.py"
+  +  "print_dis_avgvel.py"
+
+Each of these nodes is defined by specifying the package name "assignment_2_2022" where they reside, the type of the file, and the name of the node. The last two nodes are run with the additional parameter output="screen" and launch-prefix="xterm -hold -e" respectively, which will cause the output of these nodes to be printed to the screen in a new terminal window.
+	
+```python
+ def __init__(self):
+        # Get the publish frequency parameter
+        self.freq = rospy.get_param("frequency")
+
+        # Last time the info was printed
+        self.printed = 0
+
+        # Subscriber to the position and velocity topic
+        self.sub_pos = rospy.Subscriber("/posxy_velxy", Posxy_velxy, self.posvel_callback)
+```
+The node first gets the desired position of the robot, and the actual position of the robot from the message received. It then calculates the distance between the desired and actual positions using the math.dist() function. It also gets the actual velocity of the robot from the message and calculates the average speed using the velocity components from the message. Finally, it prints the distance and average speed information using the rospy.loginfo() function, and updates the last printed time variable.
+
+<p align="center" width="100%">
+    <img width="60%" src="https://user-images.githubusercontent.com/58879182/213949410-960707c9-6672-490f-96c1-2d3c2618f1cd.png">
+</p>
+------------------------------------
 ## Installation
 
 The simulator requires a **Python 2.7** installation, the [pygame](http://pygame.org/) library, [PyPyBox2D](https://pypi.python.org/pypi/pypybox2d/2.1-r331), and [PyYAML](https://pypi.python.org/pypi/PyYAML/).
