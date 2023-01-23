@@ -198,7 +198,7 @@ or just us the rqt tool to call the service. rqt is a tool in ROS (Robot Operati
 	rqt
 ```
 <p align="center" width="100%">
-    <img width="800" height="250" src="https://user-images.githubusercontent.com/58879182/214059310-a25e8d3d-29fd-4a1f-927f-9e372578cba3.png">
+    <img width="800" height="300" src="https://user-images.githubusercontent.com/58879182/214059310-a25e8d3d-29fd-4a1f-927f-9e372578cba3.png">
 </p>
 
 To access the Service Caller function in rqt, follow these steps:
@@ -211,7 +211,7 @@ To access the Service Caller function in rqt, follow these steps:
     6- The response window will display the number of targets reached and cancelled.
 	
 <p align="center" width="100%">
-    <img width="800" height="250" src="https://user-images.githubusercontent.com/58879182/214059310-a25e8d3d-29fd-4a1f-927f-9e372578cba3.png">
+    <img width="800" height="300" src="https://user-images.githubusercontent.com/58879182/214059302-e17e3cf2-5126-48c3-a3e2-119a81665366.png">
 </p>
 	
 ---------------------------------
