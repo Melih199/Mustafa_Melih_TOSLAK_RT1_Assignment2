@@ -178,15 +178,14 @@ The launch file for the assignment can be found in the "launch" folder within th
 ```command
 	roslaunch assignment_2_2022 assignment2.launch
 ```
-
+Upon successful launch, four screens should appear: one for inputting target coordinates (action_user.py), one for displaying the distance and average velocity of the robot (print_dis_avgvel.py), and two for the Gazebo and Rviz visualization environments.
+	
 <p align="center" width="100%">
     <img width="24%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
     <img width="24%" src="https://user-images.githubusercontent.com/58879182/213949410-960707c9-6672-490f-96c1-2d3c2618f1cd.png">
-    <img width="24%" src="https://user-images.githubusercontent.com/58879182/213936088-b599162b-4c8a-4728-b4f6-830d56a3db6e.png">
+    <img width="24%" height="250" src="https://user-images.githubusercontent.com/58879182/213936088-b599162b-4c8a-4728-b4f6-830d56a3db6e.png">
     <img width="24%" src="https://user-images.githubusercontent.com/58879182/213935894-04b775d8-8a03-4a45-86b4-349905741c48.png">	
 </p>
-	
-Upon successful launch, four screens should appear: one for inputting target coordinates (action_user.py), one for displaying the distance and average velocity of the robot (print_dis_avgvel.py), and two for the Gazebo and Rviz visualization environments.
 	
 	
 ---------------------------------
