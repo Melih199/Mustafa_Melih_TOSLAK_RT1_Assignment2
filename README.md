@@ -1,4 +1,3 @@
-# Mustafa_Melih_TOSLAK_RT1_Assignment2
 RESEARCH TRACK 1  ASSIGNMENT 2
 ================================
 
