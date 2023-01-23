@@ -146,11 +146,7 @@ Each of these nodes is defined by specifying the package name "assignment_2_2022
     <node pkg="assignment_2_2022" type="print_dis_avgvel.py" name="print_dis_avgvel" output="screen" launch-prefix="xterm -hold -e" />
 </launch>
 ```
-The node first gets the desired position of the robot, and the actual position of the robot from the message received. It then calculates the distance between the desired and actual positions using the math.dist() function. It also gets the actual velocity of the robot from the message and calculates the average speed using the velocity components from the message. Finally, it prints the distance and average speed information using the rospy.loginfo() function, and updates the last printed time variable.
-
-<p align="center" width="100%">
-    <img width="60%" src="https://user-images.githubusercontent.com/58879182/213949410-960707c9-6672-490f-96c1-2d3c2618f1cd.png">
-</p>
+This launch file allows to start all the necessary nodes for the application and set the required parameters with a single command, instead of running each node and setting each parameter separately. It also allows to run the nodes in a specific order and with specific settings.
 ------------------------------------
 ## Installation
 
