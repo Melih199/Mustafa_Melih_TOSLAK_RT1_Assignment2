@@ -62,12 +62,9 @@ It's a simple implementation of action client, it sends a goal to the action ser
 ### Flowchart of the action_user.py
 
 <p align="center" width="100%">
-    <img width="80%" src="https://user-images.githubusercontent.com/58879182/214114278-fa53c165-bfd9-4d00-967d-a7e058490bc5.png">
+    <img width="80%" src="https://user-images.githubusercontent.com/58879182/214115689-40ca2b9f-a117-4484-ab77-335498e31adc.png">
 </p>
 
-<p align="center" width="100%">
-    <img width="80%" src="https://user-images.githubusercontent.com/58879182/214115181-39106b2d-0826-4da3-92d4-60c0318baef5.svg">
-</p>
 --------------------------------------------------------------------------------------------------------------------------------------------------
 ## Second Node: Service (goal_service.py)
 
